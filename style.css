@@ -1,0 +1,259 @@
+/* গুগল ফন্ট ইম্পোর্ট */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 1rem;
+}
+
+/* -------------------------- */
+/* ১. হোম পেজ (index.html) স্টাইল */
+/* -------------------------- */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.header-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.header h1 {
+    margin: 10px 0 5px;
+    font-size: 1.8rem;
+}
+.header p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.exam-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+.exam-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+.exam-card span {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* -------------------------- */
+/* ২. টপিক তালিকা (test_list.html) স্টাইল */
+/* -------------------------- */
+.back-link {
+    text-decoration: none;
+    color: #555;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 20px;
+}
+.list-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.subject-header {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.topic-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.topic-card:hover {
+    background-color: #f9f9f9;
+    transform: translateX(5px);
+}
+.no-test {
+    font-style: italic;
+    color: #777;
+    padding: 10px;
+}
+
+/* -------------------------- */
+/* ৩. কুইজ পেজ (quiz.html) স্টাইল */
+/* -------------------------- */
+.timer-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    width: 200px;
+    text-align: center;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.quiz-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    max-width: 95%;
+    overflow: hidden;
+    flex: 2;
+    min-width: 300px; /* মোবাইলের জন্য ঠিক করা */
+}
+.quiz-header { padding: 2rem; }
+.quiz-header h2 {
+    padding: 0;
+    margin: 0 0 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+ul { list-style-type: none; padding: 0; }
+ul li {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    border-radius: 5px;
+}
+ul li:hover { background-color: #f0f8ff; }
+ul li label { cursor: pointer; margin-left: 10px; }
+input[type="radio"] { transform: scale(1.2); }
+
+/* বাটন গ্রুপ (কুইজের নিচে) */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1.5rem 2rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap; /* ছোট স্ক্রিনে বাটন নিচে নামবে */
+}
+.quiz-btn {
+    flex: 1;
+    min-width: 150px; /* বাটনের একটি ন минима সাইজ */
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.quiz-btn.clear { background-color: #f0f0f0; color: #555; border: 1px solid #ccc; }
+.quiz-btn.clear:hover { background-color: #e0e0e0; }
+.quiz-btn.mark { background-color: #722ed1; color: white; }
+.quiz-btn.mark:hover { background-color: #531dab; }
+.quiz-btn.save { background-color: #007bff; color: white; }
+.quiz-btn.save:hover { background-color: #0056b3; }
+
+/* প্যালেট কন্টেইনার (ডান দিক) */
+.palette-container {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    min-width: 300px;
+    position: sticky;
+    top: 2rem;
+}
+.palette-container h4 { text-align: center; margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+.palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(45px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.palette-btn { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #ddd; background-color: #f7f7f7; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+
+/* প্যালেট বাটনের অবস্থা */
+.palette-btn.unanswered { background-color: #f7f7f7; color: #555; border-color: #ddd; }
+.palette-btn.answered { background-color: #f6ffed; border-color: #b7eb8f; color: #389e0d; }
+.palette-btn.marked { background-color: #f9f0ff; border-color: #d3adf7; color: #722ed1; }
+.palette-btn.marked-answered { background-color: #f9f0ff; border-color: #d3adf7; color: #722ed1; position: relative; }
+.palette-btn.marked-answered::after { content: ''; position: absolute; top: 5px; right: 5px; width: 10px; height: 10px; border-radius: 50%; background-color: #52c41a; border: 1px solid white; }
+.palette-btn.current { box-shadow: 0 0 10px rgba(24, 144, 255, 0.5); border-color: #91d5ff; }
+
+/* লেজেন্ড (Legend) স্টাইল */
+.palette-legend { font-size: 0.9rem; color: #555; margin-bottom: 1.5rem; }
+.palette-legend > div { display: flex; align-items: center; margin-bottom: 8px; }
+.legend-box { width: 15px; height: 15px; border-radius: 3px; margin-right: 10px; border: 1px solid #ccc; }
+.legend-answered { background-color: #f6ffed; border-color: #b7eb8f; }
+.legend-unanswered { background-color: #f7f7f7; }
+.legend-marked { background-color: #f9f0ff; border-color: #d3adf7; }
+.legend-marked-answered { background-color: #f9f0ff; border-color: #d3adf7; }
+
+/* ফাইনাল সাবমিট বাটন */
+.submit-all-btn { background-color: #dc3545; color: white; border: none; display: block; width: 100%; padding: 1rem; font-size: 1.2rem; font-family: inherit; font-weight: 700; border-radius: 8px; cursor: pointer; }
+.submit-all-btn:hover { background-color: #c82333; }
+
+/* -------------------------- */
+/* ৪. সলিউশন পেজের স্টাইল (JS দিয়ে তৈরি হয়) */
+/* -------------------------- */
+.solution-container { width: 100%; max-width: 800px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); padding: 2rem; }
+.solution-container h1 { text-align: center; color: #333; border-bottom: 2px solid #f0f2f5; padding-bottom: 1rem; }
+.results-title { text-align: center; font-size: 1.5rem; font-weight: 700; color: #007bff; background-color: #f0f8ff; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
+.solution-question { margin-bottom: 2rem; border-bottom: 1px dashed #ddd; padding-bottom: 1.5rem; }
+.solution-question h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; }
+.options-list { list-style-type: none; padding: 0; }
+.option-item { background-color: #f9f9f9; border: 1px solid #eee; padding: 12px 15px; border-radius: 5px; margin-bottom: 10px; font-size: 1.1rem; }
+.option-item.user-wrong { background-color: #fff1f0; border-color: #ffccc7; color: #a8071a; font-weight: 500; }
+.option-item.user-correct,
+.option-item.actual-correct { background-color: #f6ffed; border-color: #b7eb8f; color: #389e0d; font-weight: 700; }
+.explanation { background-color: #f0f8ff; border: 1px solid #b3e0ff; border-radius: 5px; padding: 15px; margin-top: 1.5rem; font-size: 1rem; line-height: 1.6; }
+.explanation strong { color: #0056b3; }
+.reload-btn { background-color: #28a745; color: white; border: none; display: block; width: 100%; padding: 1.3rem; font-size: 1.3rem; font-family: inherit; font-weight: 700; cursor: pointer; border-radius: 8px; }
+.reload-btn:hover { background-color: #218838; }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="timer-container" id="timer-display">--:--</div>
+
+    <div class="page-wrapper">
+        
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-header">
+                <h2 id="question">Question text goes here</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="answer" id="a" class="answer">
+                        <label for="a" id="a_text">Option A</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="b" class="answer">
+                        <label for="b" id="b_text">Option B</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="c" class="answer">
+                        <label for="c" id="c_text">Option C</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="d" class="answer">
+                        <label for="d" id="d_text">Option D</label>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="button-group">
+                <button id="clear-btn" class="quiz-btn clear">Clear Response</button>
+                <button id="mark-review-btn" class="quiz-btn mark">Mark for Review & Next</button>
+                <button id="save-next-btn" class="quiz-btn save">Save & Next</button>
+            </div>
+        </div>
+
+        <div class="palette-container" id="palette">
+            <h4>Question Palette</h4>
+            <div class="palette-grid" id="palette-grid">
+                </div>
+            
+            <div class="palette-legend">
+                <div><span class="legend-box legend-answered"></span> Answered</div>
+                <div><span class="legend-box legend-unanswered"></span> Unanswered</div>
+                <div><span class="legend-box legend-marked"></span> Marked for Review</div>
+                <div><span class="legend-box legend-marked-answered"></span> Answered & Marked</div>
+            </div>
+            
+            <button id="final-submit-btn" class="submit-all-btn">Submit Test</button>
+        </div>
+
+    </div>
+
+    <script src="quiz_script.js"></script>
+</body>
+</html>

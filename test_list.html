@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Series</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-link">&larr; সব পরীক্ষায় ফিরে যান</a>
+        <h1 id="exam-title">Exam Topics</h1>
+    </div>
+
+    <div class="list-container" id="topic-list">
+        </div>
+
+    <script>
+        // URL থেকে examId পাওয়া
+        const params = new URLSearchParams(window.location.search);
+        const examId = params.get('exam'); // 'wbp', 'ssc_gd'
+
+        // প্রতিটি পরীক্ষার জন্য বিষয় এবং টপিক সেট করুন
+        const exams = {
+            'wbp': {
+                name: 'WBP পরীক্ষা',
+                subjects: [
+                    {
+                        subjectName: 'Mathematics (গণিত)',
+                        tests: [
+                            { name: 'Percentage (শতাংশ) - সেট ১', testFile: 'wbp_math_percent_1' },
+                            { name: 'Profit & Loss (লাভ ও ক্ষতি) - সেট ১', testFile: 'wbp_math_profit_1' },
+                        ]
+                    },
+                    {
+                        subjectName: 'General Knowledge (GK)',
+                        tests: [
+                            { name: 'History (ইতিহাস) - সেট ১', testFile: 'wbp_gk_history_1' },
+                            // --- নতুন টেস্টটি এখানে যোগ করা হয়েছে ---
+                            { name: 'General Knowledge - সেট ১', testFile: 'gk_set_1' }
+                        ]
+                    }
+                ]
+            },
+            'ssc_gd': {
+                name: 'SSC GD',
+                subjects: [
+                    {
+                        subjectName: 'General Science',
+                        tests: [
+                            { name: 'Physics Set 1', testFile: 'ssc_gd_phy_1' }
+                        ]
+                    },
+                    {
+                        subjectName: 'Mathematics',
+                        tests: [
+                            { name: 'Number System Set 1', testFile: 'ssc_gd_math_num_1' }
+                        ]
+                    }
+                ]
+            },
+            'kp': {
+                name: 'Kolkata Police',
+                subjects: [
+                    {
+                        subjectName: 'Reasoning',
+                        tests: [] // খালি রাখলে "টেস্ট নেই" দেখাবে
+                    }
+                ]
+            },
+            'rail': {
+                name: 'Railway (RRB)',
+                subjects: [
+                     {
+                        subjectName: 'General Awareness',
+                        tests: [
+                             { name: 'Current Affairs Set 1', testFile: 'rrb_ga_ca_1' }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        const currentExam = exams[examId];
+        const topicListContainer = document.getElementById('topic-list');
+        
+        if (currentExam) {
+            document.getElementById('exam-title').innerText = currentExam.name;
+            
+            // বিষয় অনুযায়ী তালিকা তৈরি
+            currentExam.subjects.forEach(subject => {
+                
+                // সাবজেক্টের হেডার
+                const header = document.createElement('h2');
+                header.className = 'subject-header';
+                header.innerText = subject.subjectName;
+                topicListContainer.appendChild(header);
+
+                // ওই সাবজেক্টের সব টেস্ট
+                if (subject.tests.length === 0) {
+                     const noTest = document.createElement('p');
+                     noTest.className = 'no-test';
+                     noTest.innerText = 'এই বিভাগে কোনো টেস্ট এখনও যোগ করা হয়নি...';
+                     topicListContainer.appendChild(noTest);
+                } else {
+                    subject.tests.forEach(topic => {
+                        const link = document.createElement('a');
+                        link.className = 'topic-card';
+                        // quiz.html পেজে testFile নামটি পাঠানো হচ্ছে
+                        link.href = `quiz.html?test=${topic.testFile}`;
+                        link.innerText = topic.name;
+                        topicListContainer.appendChild(link);
+                    });
+                }
+            });
+
+        } else {
+            document.getElementById('exam-title').innerText = 'পরীক্ষা পাওয়া যায়নি';
+        }
+    </script>
+</body>
+</html>
